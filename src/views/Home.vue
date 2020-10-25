@@ -58,8 +58,8 @@
       <p class="text-white mb-3">
         Join interactive, global adventures with inspiring, kid-friendly hosts.
       </p>
-      <div class="flex overflow-x-scroll py-6 max-w-screen-xl mx-auto">
-        <div class="carousel-exp-card bg-gray-900 rounded-xl pb-4 mr-4">
+      <div class="flex overflow-x-scroll pt-6 max-w-screen-xl mx-auto lg:overflow-x-hidden">
+        <div class="carousel-exp-card bg-gray-900 rounded-xl pb-4 mr-4 mb-4 md:w-1/2">
           <img
             class="carousel-img rounded-t-xl"
             alt="Carousel 1 Image"
@@ -71,40 +71,47 @@
             </p>
           </div>
         </div>
-        <div class="carousel-exp-card bg-gray-900 rounded-xl pb-4 mr-4">
-          <img
-            class="carousel-img rounded-t-xl"
-            alt="Carousel 2 Image"
-            src="img/carousel-exp/image-2.jpg"
-          >
-          <div class="px-5 pt-4">
-            <p class="font-bold text-white text-lg mb-1">
-              Go on a leopard safari in Sri Lanka
-            </p>
+        <!-- 50% images -->
+        <div class="flex md:flex-col md:w-1/2 md:flex-wrap lg:flex-row justify-space-between">
+          <div class="mr-4 mb-4 lg:pr-2 lg:mr-0 lg:w-1/2">
+            <div class="carousel-exp-card bg-gray-900 rounded-xl pb-4">
+              <img
+                class="carousel-img rounded-t-xl"
+                alt="Carousel 2 Image"
+                src="img/carousel-exp/image-2.jpg"
+              >
+              <div class="px-5 pt-4">
+                <p class="font-bold text-white text-lg mb-1">
+                  Go on a leopard safari in Sri Lanka
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="carousel-exp-card bg-gray-900 rounded-xl pb-4 mr-4">
-          <img
-            class="carousel-img rounded-t-xl"
-            alt="Carousel 2 Image"
-            src="img/carousel-exp/image-3.jpg"
-          >
-          <div class="px-5 pt-4">
-            <p class="font-bold text-white text-lg mb-1">
-              Discover Buenos Aires street art and sketch
-            </p>
+          <div class="mr-4 mb-4 lg:pl-2 lg:mr-0 lg:w-1/2">
+            <div class="carousel-exp-card bg-gray-900 rounded-xl pb-4">
+              <img
+                class="carousel-img rounded-t-xl"
+                alt="Carousel 2 Image"
+                src="img/carousel-exp/image-3.jpg"
+              >
+              <div class="px-5 pt-4">
+                <p class="font-bold text-white text-lg mb-1">
+                  Discover Buenos Aires street art and sketch
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="carousel-exp-card bg-gray-900 rounded-xl pb-4 mr-4">
-          <img
-            class="carousel-img rounded-t-xl"
-            alt="Carousel 2 Image"
-            src="img/carousel-exp/image-4.jpg"
-          >
-          <div class="px-5 pt-4">
-            <p class="font-bold text-white text-lg mb-1">
-              Dive under the sea with a shark scientist
-            </p>
+          <div class="carousel-exp-card bg-gray-900 rounded-xl pb-4 mb-4 md:hidden lg:block">
+            <img
+              class="carousel-img rounded-t-xl"
+              alt="Carousel 2 Image"
+              src="img/carousel-exp/image-4.jpg"
+            >
+            <div class="px-5 pt-4">
+              <p class="font-bold text-white text-lg mb-1">
+                Dive under the sea with a shark scientist
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -415,7 +422,7 @@ export default {
     background-image: url('/img/bg-intro/bg-intro-960.jpg');
     min-height: 720px;
   }
-  .carousel-card {
+  .carousel-card, .carousel-exp-card {
     min-width: 0;
   }
 }
