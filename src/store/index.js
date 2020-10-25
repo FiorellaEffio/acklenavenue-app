@@ -15,16 +15,20 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    toogle(state, bool) {
+    toggle(state, bool) {
       state.isTrue = bool;
     },
   },
   actions: {
+    toggle(context) {
+      const temp = !context.state.isTrue;
+      firebase.database.ref('settings/setting').set(temp);
+    },
     getFirebaseDatabase(context) {
       firebase.database.ref('settings/setting').on('value', (snap) => {
-        console.log('toogle value firebase');
+        console.log('toggle value firebase');
         console.log(snap.val());
-        context.commit('toogle', snap.val());
+        context.commit('toggle', snap.val());
       });
     },
   },

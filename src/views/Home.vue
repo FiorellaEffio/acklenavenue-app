@@ -114,21 +114,35 @@
         <span class="font-bold text-sm text-white">Explore all</span>
       </button>
     </div>
-    <div class="px-6 pt-8 pb-2 md:px-10">
-      <p class="text-xl font-bold">Have you made your plan to vote? Let's get #VoteReady.</p>
-      <p class="opacity-75 mt-3 text-sm">
-        This year more than ever, voting early is a great way to avoid lines, stay safe, and ensure
-        your voice is heard. Visit Airbnb’s Civic Action Center, a one-stop resource for Election
-        information, to check your voter registration and learn about all your voting options.
-      </p>
-      <button
-        class="border border-black rounded-lg px-5 py-2 my-6 hover:bg-gray-100 focus:outline-none"
-      >
-        <span class="font-bold">Civic Action Center</span>
-      </button>
+    <div class="px-6 pt-8 pb-2 md:px-10 lg:py-10 lg:mt-3">
+      <div class="max-w-screen-xl mx-auto lg:flex">
+        <div class="lg:w-1/2">
+          <p class="text-xl font-bold lg:text-4xl lg:pr-3">
+            Have you made your plan to vote? Let's get #VoteReady.
+          </p>
+          <button
+            class="hidden lg:block border border-black rounded-lg px-5 py-2 my-6
+            hover:bg-gray-100 focus:outline-none"
+          >
+            <span class="font-bold">Civic Action Center</span>
+          </button>
+        </div>
+        <p class="opacity-75 mt-3 text-sm lg:w-1/2 lg:text-lg lg:leading-7 lg:opacity-100 lg:ml-3">
+          This year more than ever, voting early is a great way to avoid lines, stay safe, and
+          ensure your voice is heard. Visit Airbnb’s Civic Action Center, a one-stop resource
+          for Election information, to check your voter registration and learn about all your
+          voting options.
+        </p>
+        <button
+          class="lg:hidden border border-black rounded-lg px-5 py-2 my-6
+          hover:bg-gray-100 focus:outline-none"
+        >
+          <span class="font-bold">Civic Action Center</span>
+        </button>
+      </div>
     </div>
     <div class="pl-6 py-8 md:px-10">
-      <p class="text-2xl font-bold">Your next escape</p>
+      <p class="text-2xl font-bold max-w-screen-xl mx-auto">Your next escape</p>
       <div class="overflow-x-scroll py-6 max-w-screen-xl mx-auto">
         <div class="places-container flex flex-wrap">
           <div class="flex w-1/2 lg:w-1/4 mt-1 mb-2">
@@ -234,94 +248,107 @@
     </div>
     <!-- footer -->
     <div class="bg-gray-100 px-6  md:px-10 py-4 border-gray-300 border-t">
-      <div class="pt-5 pb-3 flex flex-wrap">
-        <p class="font-bold text-sm w-full">ABOUT</p>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          How Airbnb works
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">Newsroom</a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">Airbnb Plus</a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">Airbnb Luxe</a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Hotel Tonight
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Airbnb for Work
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">Olympics</a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">Careers</a>
+      <div class="lg:max-w-screen-xl lg:mx-auto lg:flex">
+        <div class="pt-5 pb-3 flex flex-col md:flex-row flex-wrap h-fit text-sm">
+          <p class="font-bold w-full md:my-2">ABOUT</p>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            How Airbnb works
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Newsroom
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Airbnb Plus
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Airbnb Luxe
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Hotel Tonight
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Airbnb for Work
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Olympics
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Careers
+          </a>
+        </div>
+        <div class="border-gray-300 border-t"></div>
+        <div class="pt-5 pb-3 flex flex-col md:flex-row flex-wrap h-fit text-sm">
+          <p class="font-bold w-full md:my-2">COMMUNITY</p>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Diversity & Belonging
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Against Discrimination
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Accessibility
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Airbnb Associates
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Frontline Stays
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Invite friends
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Gift Cards
+          </a>
+        </div>
+        <div class="border-gray-300 border-t"></div>
+        <div class="pt-5 pb-3 flex flex-col md:flex-row flex-wrap h-fit text-sm">
+          <p class="font-bold w-full md:my-2">HOST</p>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Host your name
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Host an Online Experience
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Host an Experience
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Responsible hosting
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Open Homes
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Resource Center
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Community Center
+          </a>
+        </div>
+        <div class="border-gray-300 border-t"></div>
+        <div class="pt-5 pb-3 flex flex-col md:flex-row flex-wrap h-fit text-sm">
+          <p class="font-bold w-full md:my-2">SUPPORT</p>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Updates for COVID-19
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Help Center
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Cancellation options
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Neighborhood Support
+          </a>
+          <a class="hover:underline cursor-pointer mt-2 mb-1 md:my-2 md:w-1/3 lg:w-full">
+            Trust & Safety
+          </a>
+        </div>
+        <div class="border-gray-300 border-t mb-16"></div>
       </div>
-      <div class="border-gray-300 border-t"></div>
-      <div class="pt-5 pb-3 flex flex-wrap">
-        <p class="font-bold text-sm w-full">COMMUNITY</p>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Diversity & Belonging
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Against Discrimination
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Accessibility
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Airbnb Associates
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Frontline Stays
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Invite friends
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Gift Cards
-        </a>
-      </div>
-      <div class="border-gray-300 border-t"></div>
-      <div class="pt-5 pb-3 flex flex-wrap">
-        <p class="font-bold text-sm w-full">HOST</p>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Host your name
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Host an Online Experience
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Host an Experience
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Responsible hosting
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Open Homes
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Resource Center
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Community Center
-        </a>
-      </div>
-      <div class="border-gray-300 border-t"></div>
-      <div class="pt-5 pb-3 flex flex-wrap">
-        <p class="font-bold text-sm w-full">SUPPORT</p>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Updates for COVID-19
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Help Center
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Cancellation options
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Neighborhood Support
-        </a>
-        <a class="hover:underline cursor-pointer text-sm mt-2 mb-1 w-full md:w-1/3">
-          Trust & Safety
-        </a>
-      </div>
-      <div class="border-gray-300 border-t mb-16"></div>
     </div>
+
     <div class="flex bg-white fixed bottom-0 left-0 w-full">
       <div class="flex justify-center py-2 w-1/5 text-xs">
         Explore
@@ -350,6 +377,13 @@ export default {
 };
 </script>
 <style>
+::-webkit-scrollbar {
+ height: 0px;
+ width: 0px;
+}
+.h-fit {
+  height: fit-content;
+}
 .bg-image {
   background-image: url('/img/bg-intro/bg-intro-320.jpg');
   min-height: 427px;

@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="bg-blue-500">
-    <button @click="toogleMe">toogle me</button>
+    <button @click="toggleMe">toggle me</button>
     <p>{{ isTrueApp }}</p>
     <!-- <div id="nav"> -->
       <!-- <router-link to="/">Home</router-link> | -->
@@ -18,8 +18,8 @@ export default {
     },
   },
   methods: {
-    toogleMe() {
-      this.$store.dispatch('toogle');
+    toggleMe() {
+      this.$store.dispatch('toggle');
     },
   },
   created() {
