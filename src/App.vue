@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="bg-blue-500">
-    <button @click="toggleMe">toggle me</button>
-    <p>{{ isTrueApp }}</p>
+    <!-- <button @click="toggleMe">toggle me</button> -->
+    <!-- <p>{{ isTrueApp }}</p> -->
     <!-- <div id="nav"> -->
       <!-- <router-link to="/">Home</router-link> | -->
       <!-- <router-link to="/about">About</router-link> -->
@@ -30,7 +30,7 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap'); */
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
