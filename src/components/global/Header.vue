@@ -86,7 +86,7 @@
           class="bg-white rounded-lg m-auto px-4 py-2 mt-3 hover:bg-gray-100 focus:outline-none
           md:ml-0"
         >
-            <span class="font-bold text-sm">Explore nearby</span>
+          <span class="font-bold text-sm">Explore nearby</span>
         </button>
       </div>
     </div>
@@ -100,23 +100,62 @@
         class="absolute w-full h-full bg-black opacity-25 top-0 left-0 cursor-pointer"
       ></div>
       <div
-        class="absolute w-1/2 h-32 bg-white rounded-sm shadow-lg flex items-center justify-center
-        text-2xl"
+        class="absolute w-11/12 md:w-3/5 lg:w-2/5 bg-white rounded-sm shadow-lg flex items-center
+        justify-center text-2xl rounded-xl flex-col"
       >
-        modal
+        <div class="h-16 flex justify-center items-center relative w-full">
+          <p class="text-base font-bold">
+            {{ dialogType === 'login' ? 'Login' : dialogType === 'register' ? 'Sign Up' : '' }}
+          </p>
+          <div
+            @click="toggleModal"
+            class="mt-5 h-3 ml-4 h-6 w-6 rounded-full hover:bg-gray-100 absolute top-0
+            left-0 flex justify-center items-center cursor-pointer"
+          >
+            <img class="h-3" alt="" src="img/icons/close.png">
+          </div>
+        </div>
+        <div class="border-gray-300 border-t w-full"></div>
+        <sign-up v-if="dialogType === 'register'">
+          <p class="text-sm text-gray-900 mt-3">
+            Already have an account?
+            <span
+              @click="dialogType === 'login' ? dialogType = 'register' : dialogType = 'login'"
+              class="underline font-bold cursor-pointer"
+            >
+              Log in
+            </span>
+          </p>
+        </sign-up>
+        <login v-else>
+          <p class="text-sm text-gray-900 mt-3">
+            Don't have an account?
+            <span
+              @click="dialogType === 'login' ? dialogType = 'register' : dialogType = 'login'"
+              class="underline font-bold cursor-pointer"
+            >
+              Sign Up
+            </span>
+          </p>
+        </login>
       </div>
     </div>
   </div>
 </template>
 <script>
+import SignUp from './SignUp.vue';
+import Login from './Login.vue';
 
 export default {
   name: 'Header',
+  components: {
+    SignUp,
+    Login,
+  },
   data: () => ({
     userAuth: false,
     dropdownLogin: false,
-    showLogin: false,
-    showRegister: false,
+    dialogType: '',
   }),
   methods: {
     toggleModal() {
@@ -125,7 +164,7 @@ export default {
     },
     showDialog(type) {
       /* eslint-disable */
-      type === 'login' ? this.showLogin = true : this.showRegister = true;
+      this.dialogType = type;
       this.dropdownLogin = false;
       this.toggleModal();
     },
