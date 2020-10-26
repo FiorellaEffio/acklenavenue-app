@@ -349,24 +349,6 @@
         <div class="border-gray-300 border-t mb-16"></div>
       </div>
     </div>
-
-    <div class="flex bg-white fixed bottom-0 left-0 w-full md:hidden">
-      <div class="flex justify-center py-2 w-1/5 text-xs">
-        Explore
-      </div>
-      <div class="flex justify-center py-2 w-1/5 text-xs">
-        Saved
-      </div>
-      <div class="flex justify-center py-2 w-1/5 text-xs">
-        Trips
-      </div>
-      <div class="flex justify-center py-2 w-1/5 text-xs">
-        Inbox
-      </div>
-      <div class="flex justify-center py-2 w-1/5 text-xs">
-        Profile
-      </div>
-    </div>
   </div>
 </template>
 

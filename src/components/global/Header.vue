@@ -15,7 +15,7 @@
             <img class="h-8" alt="Airbnb logo" src="img/airbnb-white.png">
             <span class="ml-2 font-bold text-xl text-white">airbnb</span>
           </div>
-          <div class="flex">
+          <div class="flex relative">
             <p
               class="items-center h-10 rounded-full mx-1 px-4 text-white text-sm
               font-bold cursor-pointer hover:bg-gray-400 hidden sm:flex"
@@ -26,9 +26,31 @@
               <img class="h-4" alt="" src="img/icons/earth-grid-symbol.png">
               <img class="my-3 h-2 ml-2" alt="" src="img/icons/down-arrow.png">
             </div>
-            <div class="bg-white flex items-center rounded-full h-10 pl-3 pr-2 ml-2 cursor-pointer">
+            <div
+              @click="dropdownLogin = !dropdownLogin"
+              class="bg-white flex items-center rounded-full h-10 pl-3 pr-2 ml-2
+              cursor-pointer"
+            >
               <img class="h-4" alt="" src="img/icons/menu.png">
               <img class="h-6 ml-2" alt="" src="img/icons/user.png">
+            </div>
+            <div
+              v-show="dropdownLogin"
+              class="shadow-lg text-sm font-bold rounded-xl absolute bottom-0 right-0 -mb-20
+              bg-white z-10"
+            >
+              <div
+                @click="showDialog('login')"
+                class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
+              >
+                Login
+              </div>
+              <div
+                @click="showDialog('register')"
+                class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
+              >
+                Sign up
+              </div>
             </div>
           </div>
         </div>
@@ -89,10 +111,23 @@
 <script>
 
 export default {
+  name: 'Header',
+  data: () => ({
+    userAuth: false,
+    dropdownLogin: false,
+    showLogin: false,
+    showRegister: false,
+  }),
   methods: {
     toggleModal() {
       this.$refs.modal.classList.toggle('opacity-0');
       this.$refs.modal.classList.toggle('pointer-events-none');
+    },
+    showDialog(type) {
+      /* eslint-disable */
+      type === 'login' ? this.showLogin = true : this.showRegister = true;
+      this.dropdownLogin = false;
+      this.toggleModal();
     },
   },
 };
