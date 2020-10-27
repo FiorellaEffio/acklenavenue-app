@@ -2,16 +2,18 @@
   <div class="px-6 pt-3 pb-6 w-full">
     <div class="w-full rounded-xl border-gray-300 border">
       <input
+        v-model="email"
         class="h-12 rounded-full text-sm px-3 focus:outline-none w-full"
-        type="text"
+        type="email"
         placeholder="Email"
       />
       <div class="border-gray-300 border-t w-full"></div>
       <div class="relative">
         <input
-            class="h-12 text-gray-900 rounded-full text-sm px-3 focus:outline-none w-full"
-            :type="showPassword ? 'text' : 'password'"
-            placeholder="Password"
+          v-model="password"
+          class="h-12 text-gray-900 rounded-full text-sm px-3 focus:outline-none w-full"
+          :type="showPassword ? 'text' : 'password'"
+          placeholder="Password"
         />
         <span
           @click="showPassword = !showPassword"
@@ -22,6 +24,7 @@
       </div>
     </div>
     <button
+      @click="signIn"
       class="focus:outline-none cursor-pointer bg-pink w-full text-white font-bold text-sm
       rounded-lg py-3 mt-2"
     >
@@ -36,7 +39,16 @@ export default {
   components: {
   },
   data: () => ({
+    email: '',
+    password: '',
     showPassword: false,
   }),
+  methods: {
+    signIn() {
+      console.log(this.email);
+      console.log(this.password);
+      this.$store.dispatch('signInFirebase', { email: this.email, password: this.password });
+    },
+  },
 };
 </script>

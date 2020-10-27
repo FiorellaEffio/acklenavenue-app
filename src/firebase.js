@@ -15,4 +15,5 @@ firebase.initializeApp(firebaseConfig);
 
 export default {
   database: firebase.database(),
+  auth: firebase.auth(),
 };
