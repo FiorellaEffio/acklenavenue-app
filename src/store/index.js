@@ -61,6 +61,15 @@ export default new Vuex.Store({
         console.log("can't sign out", error);
       });
     },
+    signUpFirebase(context, data) {
+      firebase.auth.createUserWithEmailAndPassword(data.email, data.password)
+        .catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
+    },
   },
   modules: {
   },
