@@ -11,10 +11,12 @@
       <div class="bg-image bg-cover bg-center h-fit"></div>
       <div class="absolute px-6 md:px-10 py-4 top-0 w-full">
         <div class="flex justify-between items-center mb-3">
-          <div class="flex items-end">
-            <img class="h-8" alt="Airbnb logo" src="img/airbnb-white.png">
-            <span class="ml-2 font-bold text-xl text-white">airbnb</span>
-          </div>
+          <router-link to="/">
+            <div class="flex items-end">
+              <img class="h-8" alt="Airbnb logo" src="img/airbnb-white.png">
+              <span class="ml-2 font-bold text-xl text-white">airbnb</span>
+            </div>
+          </router-link>
           <div class="flex relative">
             <p
               class="items-center h-10 rounded-full mx-1 px-4 text-white text-sm
@@ -45,11 +47,13 @@
               bg-white z-10"
             >
               <template v-if="user">
-                <div
-                  class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
-                >
-                  My trips
-                </div>
+                <router-link to="/trips">
+                  <div
+                    class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
+                  >
+                    My trips
+                  </div>
+                </router-link>
                 <div
                   @click="signOut"
                   class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
@@ -80,12 +84,14 @@
             type="text"
             placeholder="Where are you going?"
           />
-          <div
-            class="absolute bg-pink rounded-full p-2 flex justify-center
-            items-center top-0 right-0 mt-2 mr-2 cursor-pointer"
-          >
-            <img class="h-4" alt="" src="img/icons/magnifiying-glass.png">
-          </div>
+          <router-link to="/search">
+            <div
+              class="absolute bg-pink rounded-full p-2 flex justify-center
+              items-center top-0 right-0 mt-2 mr-2 cursor-pointer"
+            >
+              <img class="h-4" alt="" src="img/icons/magnifiying-glass.png">
+            </div>
+          </router-link>
         </div>
       </div>
       <div
