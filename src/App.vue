@@ -9,9 +9,6 @@ export default {
   computed: {
   },
   methods: {
-    toggleMe() {
-      this.$store.dispatch('toggle');
-    },
   },
   created() {
     this.$store.dispatch('setCurrentUser');

@@ -28,10 +28,6 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    // toggle(context) {
-    //   const temp = !context.state.isTrue;
-    //   firebase.database.ref('settings/setting').set(temp);
-    // },
     getStays(context) {
       firebase.database.ref('stays').on('value', (snap) => {
         console.log('blabla');

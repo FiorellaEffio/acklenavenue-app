@@ -38,7 +38,9 @@
               cursor-pointer font-bold"
             >
               <img class="h-4" alt="" src="img/icons/menu.png">
-              <span v-if="user" class="ml-2">{{ user.displayName || user.email }}</span>
+              <span v-if="user" class="hidden sm:block ml-2">
+                {{ user.displayName || user.email }}
+              </span>
               <img
                 class="h-6 ml-2"
                 alt=""
@@ -198,18 +200,12 @@ export default {
   computed: {
     ...mapGetters({
       user: 'getUser',
-      stays: 'getStays',
     }),
-  },
-  created() {
-    console.log(this.user);
-    console.log(this.stays);
   },
   methods: {
     toggleModal() {
       this.$refs.modal.classList.toggle('opacity-0');
       this.$refs.modal.classList.toggle('pointer-events-none');
-      console.log(this.stays);
     },
     showDialog(type) {
       /* eslint-disable */
@@ -220,6 +216,7 @@ export default {
     signOut() {
       this.dropdownLogin = false;
       this.$store.dispatch('signOutFirebase');
+      this.$router.push('/');
     },
   },
 };
