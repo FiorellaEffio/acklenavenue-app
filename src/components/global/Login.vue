@@ -45,9 +45,8 @@ export default {
   }),
   methods: {
     signIn() {
-      console.log(this.email);
-      console.log(this.password);
       this.$store.dispatch('signInFirebase', { email: this.email, password: this.password });
+      this.$emit('close');
     },
   },
 };

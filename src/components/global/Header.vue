@@ -29,28 +29,48 @@
             <div
               @click="dropdownLogin = !dropdownLogin"
               class="bg-white flex items-center rounded-full h-10 pl-3 pr-2 ml-2
-              cursor-pointer"
+              cursor-pointer font-bold"
             >
               <img class="h-4" alt="" src="img/icons/menu.png">
-              <img class="h-6 ml-2" alt="" src="img/icons/user.png">
+              <span v-if="user" class="ml-2">{{ user.displayName || user.email }}</span>
+              <img
+                class="h-6 ml-2"
+                alt=""
+                :src="user ? user.photoURL : 'img/icons/user.png'"
+              >
             </div>
             <div
               v-show="dropdownLogin"
               class="shadow-lg text-sm font-bold rounded-xl absolute bottom-0 right-0 -mb-20
               bg-white z-10"
             >
-              <div
-                @click="showDialog('login')"
-                class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
-              >
-                Login
-              </div>
-              <div
-                @click="showDialog('register')"
-                class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
-              >
-                Sign up
-              </div>
+              <template v-if="user">
+                <div
+                  class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  My trips
+                </div>
+                <div
+                  @click="signOut"
+                  class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  Log out
+                </div>
+              </template>
+              <template v-else>
+                <div
+                  @click="showDialog('login')"
+                  class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  Login
+                </div>
+                <div
+                  @click="showDialog('register')"
+                  class="rounded-xl px-5 py-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  Sign up
+                </div>
+              </template>
             </div>
           </div>
         </div>
@@ -116,7 +136,7 @@
           </div>
         </div>
         <div class="border-gray-300 border-t w-full"></div>
-        <sign-up v-if="dialogType === 'register'">
+        <sign-up v-if="dialogType === 'register'" v-on:close="toggleModal">
           <p class="text-sm text-gray-900 mt-3">
             Already have an account?
             <span
@@ -127,7 +147,7 @@
             </span>
           </p>
         </sign-up>
-        <login v-else>
+        <login v-else v-on:close="toggleModal">
           <p class="text-sm text-gray-900 mt-3">
             Don't have an account?
             <span
@@ -143,6 +163,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 import SignUp from './SignUp.vue';
 import Login from './Login.vue';
 
@@ -157,6 +178,11 @@ export default {
     dropdownLogin: false,
     dialogType: '',
   }),
+  computed: {
+    ...mapGetters({
+      user: 'getUser',
+    }),
+  },
   methods: {
     toggleModal() {
       this.$refs.modal.classList.toggle('opacity-0');
@@ -167,6 +193,10 @@ export default {
       this.dialogType = type;
       this.dropdownLogin = false;
       this.toggleModal();
+    },
+    signOut() {
+      this.dropdownLogin = false;
+      this.$store.dispatch('signOutFirebase');
     },
   },
 };

@@ -23,6 +23,7 @@ export default {
     },
   },
   created() {
+    this.$store.dispatch('setCurrentUser');
     this.$store.dispatch('getFirebaseDatabase');
   },
 };

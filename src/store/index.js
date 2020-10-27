@@ -14,6 +14,9 @@ export default new Vuex.Store({
     isTrueFunction(state) {
       return state.isTrue;
     },
+    getUser(state) {
+      return state.user;
+    },
   },
   mutations: {
     toggle(state, bool) {
@@ -33,15 +36,30 @@ export default new Vuex.Store({
         context.commit('toggle', snap.val());
       });
     },
+    setCurrentUser(context) {
+      firebase.auth.onAuthStateChanged((data) => {
+        if (data) {
+          context.commit('setUser', data);
+        } else {
+          context.commit('setUser', null);
+        }
+      });
+    },
     signInFirebase(context, data) {
-      console.log('vuex action');
       firebase.auth.signInWithEmailAndPassword(data.email, data.password)
-        .then((user) => {
-          context.commit('setUser', user);
+        .then((res) => {
+          context.commit('setUser', res.user);
         })
         .catch((error) => {
           console.log(error);
         });
+    },
+    signOutFirebase(context) {
+      firebase.auth.signOut().then(() => {
+        context.commit('setUser', null);
+      }).catch((error) => {
+        console.log("can't sign out", error);
+      });
     },
   },
   modules: {
