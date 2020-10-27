@@ -6,10 +6,14 @@
       </p>
     </div>
     <div
+      :class="{ 'bg-black': homeUi === true }"
       class="bg-intro relative"
     >
-      <div class="bg-image bg-cover bg-center h-fit"></div>
-      <div class="absolute px-6 md:px-10 py-4 top-0 w-full">
+      <div v-if="homeUi === true" class="bg-image bg-cover bg-center h-fit"></div>
+      <div
+        :class="[ homeUi === true ? 'absolute' : 'relative bg-black' ]"
+        class="px-6 md:px-10 py-4 top-0 w-full"
+      >
         <div class="flex justify-between items-center mb-3">
           <router-link to="/">
             <div class="flex items-end">
@@ -95,6 +99,7 @@
         </div>
       </div>
       <div
+        v-if="homeUi === true"
         class="absolute flex flex-col justify-center bottom-0 pt-4 w-full pb-3 mb-32 md:mb-28
         md:mr-0 md:ml-10"
       >
@@ -178,6 +183,12 @@ export default {
   components: {
     SignUp,
     Login,
+  },
+  props: {
+    homeUi: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: () => ({
     userAuth: false,

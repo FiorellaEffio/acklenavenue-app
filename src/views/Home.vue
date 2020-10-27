@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <top-header></top-header>
+    <top-header :home-ui="true"></top-header>
     <carousel-options></carousel-options>
     <carousel-experience></carousel-experience>
     <civic-action></civic-action>
