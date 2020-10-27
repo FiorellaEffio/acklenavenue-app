@@ -1,11 +1,6 @@
 <template>
   <div id="app" class="bg-blue-500">
-    <!-- <button @click="toggleMe">toggle me</button> -->
-    <!-- <p>{{ isTrueApp }}</p> -->
-    <!-- <div id="nav"> -->
-      <!-- <router-link to="/">Home</router-link> | -->
-      <!-- <router-link to="/about">About</router-link> -->
-    <!-- </div> -->
+    <!-- <router-link to="/about">About</router-link> -->
     <router-view/>
   </div>
 </template>
@@ -13,9 +8,6 @@
 export default {
   name: 'App',
   computed: {
-    isTrueApp() {
-      return this.$store.getters.isTrue;
-    },
   },
   methods: {
     toggleMe() {
@@ -24,7 +16,7 @@ export default {
   },
   created() {
     this.$store.dispatch('setCurrentUser');
-    this.$store.dispatch('getFirebaseDatabase');
+    this.$store.dispatch('getStays');
   },
 };
 </script>

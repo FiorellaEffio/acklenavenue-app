@@ -181,12 +181,18 @@ export default {
   computed: {
     ...mapGetters({
       user: 'getUser',
+      stays: 'getStays',
     }),
+  },
+  created() {
+    console.log(this.user);
+    console.log(this.stays);
   },
   methods: {
     toggleModal() {
       this.$refs.modal.classList.toggle('opacity-0');
       this.$refs.modal.classList.toggle('pointer-events-none');
+      console.log(this.stays);
     },
     showDialog(type) {
       /* eslint-disable */

@@ -7,33 +7,36 @@ Vue.use(firebase);
 
 export default new Vuex.Store({
   state: {
-    isTrue: true,
     user: null,
+    userStays: null,
+    stays: null,
   },
   getters: {
-    isTrueFunction(state) {
-      return state.isTrue;
-    },
     getUser(state) {
       return state.user;
     },
+    getStays(state) {
+      return state.stays;
+    },
   },
   mutations: {
-    toggle(state, bool) {
-      state.isTrue = bool;
-    },
     setUser(state, data) {
       state.user = data;
     },
+    setStays(state, data) {
+      state.stays = data;
+    },
   },
   actions: {
-    toggle(context) {
-      const temp = !context.state.isTrue;
-      firebase.database.ref('settings/setting').set(temp);
-    },
-    getFirebaseDatabase(context) {
-      firebase.database.ref('settings/setting').on('value', (snap) => {
-        context.commit('toggle', snap.val());
+    // toggle(context) {
+    //   const temp = !context.state.isTrue;
+    //   firebase.database.ref('settings/setting').set(temp);
+    // },
+    getStays(context) {
+      firebase.database.ref('stays').on('value', (snap) => {
+        console.log('blabla');
+        console.log(snap.toJSON());
+        context.commit('setStays', snap.toJSON());
       });
     },
     setCurrentUser(context) {
