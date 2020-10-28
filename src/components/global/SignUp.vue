@@ -166,6 +166,10 @@ export default {
         lastName: this.lastName,
       });
       this.$emit('close');
+      this.password = '';
+      this.email = '';
+      this.firstName = '';
+      this.lastName = '';
     },
   },
 };

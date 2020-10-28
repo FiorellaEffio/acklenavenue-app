@@ -23,6 +23,10 @@
         </span>
       </div>
     </div>
+    <p v-if="errorMessage !== ''" class="text-xs text-pink mt-1">
+      <span class="text-white text-xxs bg-pink rounded-full px-2 py-1">x</span>
+      {{ errorMessage }}
+    </p>
     <button
       @click="signIn"
       class="focus:outline-none cursor-pointer bg-pink w-full text-white font-bold text-sm
@@ -34,6 +38,8 @@
   </div>
 </template>
 <script>
+import firebase from '@/firebase';
+
 export default {
   name: 'Login',
   components: {
@@ -42,11 +48,23 @@ export default {
     email: '',
     password: '',
     showPassword: false,
+    errorMessage: '',
   }),
   methods: {
     signIn() {
-      this.$store.dispatch('signInFirebase', { email: this.email, password: this.password });
-      this.$emit('close');
+      firebase.auth.signInWithEmailAndPassword(this.email, this.password)
+        .then((res) => {
+          firebase.database.ref(`users/${res.user.uid}`).on('value', (snap) => {
+            this.$store.dispatch('setCurrentUser', snap.toJSON());
+            this.$emit('close');
+            this.password = '';
+            this.email = '';
+            this.errorMessage = '';
+          });
+        })
+        .catch((error) => {
+          this.errorMessage = error.message;
+        });
     },
   },
 };

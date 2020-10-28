@@ -60,17 +60,6 @@ export default new Vuex.Store({
         }
       });
     },
-    signInFirebase(context, data) {
-      firebase.auth.signInWithEmailAndPassword(data.email, data.password)
-        .then((res) => {
-          firebase.database.ref(`users/${res.user.uid}`).on('value', (snap) => {
-            context.commit('setUser', snap.toJSON());
-          });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
     signOutFirebase(context) {
       firebase.auth.signOut().then(() => {
         context.commit('setUser', null);
