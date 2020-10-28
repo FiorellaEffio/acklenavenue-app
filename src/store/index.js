@@ -84,7 +84,6 @@ export default new Vuex.Store({
           const userData = {
             firstName: data.firstName,
             lastName: data.lastName,
-            birthdate: data.birthdate,
             email: res.user.email,
             id: res.user.uid,
           };
