@@ -12,7 +12,7 @@ export default {
   },
   created() {
     this.$store.dispatch('setCurrentUser');
-    this.$store.dispatch('getStays');
+    this.$store.dispatch('setFirebaseStays');
   },
 };
 </script>

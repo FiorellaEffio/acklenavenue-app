@@ -8,7 +8,8 @@ Vue.use(firebase);
 export default new Vuex.Store({
   state: {
     user: null,
-    userStays: null,
+    // user trips
+    trips: null,
     stays: null,
   },
   getters: {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     getStays(state) {
       return state.stays;
     },
+    getTrips(state) {
+      return state.trips;
+    },
   },
   mutations: {
     setUser(state, data) {
@@ -26,12 +30,19 @@ export default new Vuex.Store({
     setStays(state, data) {
       state.stays = data;
     },
+    setTrips(state, data) {
+      state.trips = data;
+    },
   },
   actions: {
-    getStays(context) {
+    setFirebaseTrips(context, uid) {
+      const pathRef = `trips/${uid}`;
+      firebase.database.ref(pathRef).on('value', (snap) => {
+        context.commit('setTrips', snap.toJSON());
+      });
+    },
+    setFirebaseStays(context) {
       firebase.database.ref('stays').on('value', (snap) => {
-        console.log('blabla');
-        console.log(snap.toJSON());
         context.commit('setStays', snap.toJSON());
       });
     },
