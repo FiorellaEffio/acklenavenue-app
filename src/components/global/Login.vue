@@ -4,7 +4,7 @@
       <input
         @keyup.enter="signIn"
         v-model="email"
-        class="h-12 rounded-full text-sm px-3 focus:outline-none w-full"
+        class="h-12 rounded-full text-base md:text-sm px-3 focus:outline-none w-full"
         type="email"
         placeholder="Email"
       />
@@ -13,7 +13,8 @@
         <input
           @keyup.enter="signIn"
           v-model="password"
-          class="h-12 text-gray-900 rounded-full text-sm px-3 focus:outline-none w-full"
+          class="h-12 text-gray-900 rounded-full text-base md:text-sm px-3
+          focus:outline-none w-full"
           :type="showPassword ? 'text' : 'password'"
           placeholder="Password"
         />

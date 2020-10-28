@@ -67,7 +67,7 @@
             >
               <input
                 v-model="guests"
-                class="h-10 rounded-full text-sm px-3 focus:outline-none w-full"
+                class="h-10 rounded-full text-base md:text-sm px-3 focus:outline-none w-full"
                 type="number"
                 min="0"
               >
@@ -84,7 +84,7 @@
             >
               <input
                 v-model="checkindate"
-                class="h-10 rounded-full text-sm px-3 focus:outline-none w-full"
+                class="h-10 rounded-full text-base md:text-sm px-3 focus:outline-none w-full"
                 type="date"
               />
               <span class="text-xxs absolute top-0 bg-white left-0 -mt-2 ml-4 px-1">
@@ -100,7 +100,7 @@
             >
               <input
                 v-model="checkoutdate"
-                class="h-10 rounded-full text-sm px-3 focus:outline-none w-full"
+                class="h-10 rounded-full text-base md:text-sm px-3 focus:outline-none w-full"
                 type="date"
               />
               <span class="text-xxs absolute top-0 bg-white left-0 -mt-2 ml-4 px-1">
