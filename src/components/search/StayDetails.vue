@@ -89,7 +89,7 @@
               <span class="text-xxs absolute top-0 bg-white left-0 -mt-2 ml-4 px-1">Check Out</span>
             </div>
             <button
-              :disabled="!user"
+              :disabled="!user || addTripDisabled"
               @click="addTrip"
               :class="[ !user ? 'opacity-25 cursor-default' : 'cursor-pointer' ]"
               class="focus:outline-none w-full bg-pink text-white font-bold text-sm
@@ -127,11 +127,45 @@ export default {
     ...mapGetters({
       user: 'getUser',
     }),
+    checkinErrors() {
+      const errors = [];
+      if (this.checkindate === '') return errors;
+      const todaysDate = new Date();
+      const pickedDate = new Date(this.checkindate);
+      if (pickedDate > todaysDate) return errors;
+      errors.push('Choose a date after today');
+      return errors;
+    },
+    checkoutErrors() {
+      const errors = [];
+      if (this.checkindate === '' || this.checkoutdate === '') return errors;
+      const checkinDate = new Date(this.checkindate);
+      const checkoutDate = new Date(this.checkoutdate);
+      if (checkoutDate > checkinDate) return errors;
+      errors.push('Choose a date after your check in date');
+      return errors;
+    },
+    guestsErrors() {
+      const errors = [];
+      const guestsNumber = Number(this.guests);
+      if (Number.isInteger(guestsNumber) && guestsNumber > 0) return errors;
+      errors.push('Have to be integer and equals or bigger than 1');
+      return errors;
+    },
+    addTripDisabled() {
+      if (this.checkindate !== '' && this.checkoutdate !== '' && this.guests !== '') {
+        if (this.checkinErrors.length === 0 && this.checkoutErrors.length === 0
+        && this.guestsErrors.length === 0) {
+          return false;
+        }
+        return true;
+      }
+      return true;
+    },
   },
   data: () => ({
     checkindate: '',
     checkoutdate: '',
-    peopleNumber: 1,
     guests: 1,
   }),
   methods: {
@@ -146,6 +180,9 @@ export default {
         guests: this.guests,
         stayId: this.stayId,
       });
+      this.guests = '';
+      this.checkindate = '';
+      this.checkoutdate = '';
     },
   },
 };
