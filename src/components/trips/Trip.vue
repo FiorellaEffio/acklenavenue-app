@@ -38,7 +38,7 @@
     >
       <div
         @click="toggleModal"
-        class="absolute w-full h-full bg-black opacity-25 top-0 left-0 cursor-pointer"
+        class="absolute w-full h-screen bg-black opacity-25 top-0 left-0 cursor-pointer"
       ></div>
       <div
         class="absolute w-11/12 md:w-3/5 lg:w-2/5 bg-white rounded-sm shadow-lg flex items-center
