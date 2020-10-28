@@ -1,7 +1,7 @@
 <template>
   <div class="md:px-2 py-4 border-gray-300 border-t w-full flex">
     <div class="md:py-4 w-full flex">
-      <div class="w-full sm:w-4/5 sm:pr-4">
+      <div class="w-full sm:w-4/5 pr-2">
         <div>
           <p class="text-xs md:text-base">
             {{ monthName(data.checkin) }} {{ day(data.checkin) }}

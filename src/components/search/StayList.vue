@@ -6,6 +6,7 @@
         v-for="(stay, index) in stays"
         :key="'stay-' + index"
         :data="stay"
+        :stay-id="keyStays[index]"
       >
       </stay-details>
     </div>
@@ -25,6 +26,9 @@ export default {
     ...mapGetters({
       stays: 'getStays',
     }),
+    keyStays() {
+      return Object.keys(this.stays);
+    },
   },
 };
 </script>

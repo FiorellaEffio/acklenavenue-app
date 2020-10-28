@@ -35,6 +35,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    addTripDatabase({ state }, data) {
+      firebase.database.ref(`trips/${state.user.uid}`).push(data);
+    },
     setFirebaseTrips(context, uid) {
       const pathRef = `trips/${uid}`;
       firebase.database.ref(pathRef).on('value', (snap) => {
@@ -49,7 +52,9 @@ export default new Vuex.Store({
     setCurrentUser(context) {
       firebase.auth.onAuthStateChanged((data) => {
         if (data) {
-          context.commit('setUser', data);
+          firebase.database.ref(`users/${data.uid}`).on('value', (snap) => {
+            context.commit('setUser', snap.toJSON());
+          });
         } else {
           context.commit('setUser', null);
         }
@@ -58,7 +63,9 @@ export default new Vuex.Store({
     signInFirebase(context, data) {
       firebase.auth.signInWithEmailAndPassword(data.email, data.password)
         .then((res) => {
-          context.commit('setUser', res.user);
+          firebase.database.ref(`users/${res.user.uid}`).on('value', (snap) => {
+            context.commit('setUser', snap.toJSON());
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -73,6 +80,16 @@ export default new Vuex.Store({
     },
     signUpFirebase(context, data) {
       firebase.auth.createUserWithEmailAndPassword(data.email, data.password)
+        .then((res) => {
+          console.log(res.user);
+          const userData = {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            birthdate: data.birthdate,
+            email: res.user.email,
+          };
+          firebase.database.ref(`users/${res.user.uid}`).set(userData);
+        })
         .catch((error) => {
           // Handle Errors here.
           const errorCode = error.code;

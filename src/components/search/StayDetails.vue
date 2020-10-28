@@ -118,6 +118,10 @@ export default {
       type: Object,
       default: () => {},
     },
+    stayId: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     ...mapGetters({
@@ -136,7 +140,12 @@ export default {
       this.$refs.modal.classList.toggle('pointer-events-none');
     },
     addTrip() {
-      console.log('add trip');
+      this.$store.dispatch('addTripDatabase', {
+        checkin: this.checkindate,
+        checkout: this.checkoutdate,
+        guests: this.guests,
+        stayId: this.stayId,
+      });
     },
   },
 };

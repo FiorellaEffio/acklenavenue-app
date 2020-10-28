@@ -39,12 +39,12 @@
             >
               <img class="h-4" alt="" src="img/icons/menu.png">
               <span v-if="user" class="hidden sm:block ml-2">
-                {{ user.displayName || user.email }}
+                {{ user.firstName || user.email }}
               </span>
               <img
                 class="h-6 ml-2"
                 alt=""
-                :src="user ? user.photoURL : 'img/icons/user.png'"
+                :src="user ? 'img/icons/cat-pink.png' : 'img/icons/user.png'"
               >
             </div>
             <div
