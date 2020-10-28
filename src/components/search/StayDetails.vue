@@ -61,37 +61,59 @@
                 <span class="font-normal mr-2">/ night</span>
               </p>
             </div>
-            <div class="w-full rounded-xl border-gray-300 border mt-2 md:mt-4 relative">
+            <div
+              :class="[ guestsErrors.length !== 0 ? 'border-pink' : 'border-gray-300']"
+              class="w-full rounded-xl border mt-2 md:mt-4 relative"
+            >
               <input
                 v-model="guests"
                 class="h-10 rounded-full text-sm px-3 focus:outline-none w-full"
                 type="number"
                 min="0"
               >
-              <span class="text-xxs absolute top-0 bg-white left-0 -mt-2 ml-4 px-1">
-                Guests (include children)
+              <span class="leading-tight text-xxs absolute top-0 bg-white left-0 -mt-2 ml-4 px-1">
+                Guests
+                <span v-if="guestsErrors.length !== 0" class="text-pink">
+                  ({{ guestsErrors.join(', ') }})
+                </span>
               </span>
             </div>
-            <div class="w-full rounded-xl border-gray-300 border mt-2 md:mt-4 relative">
+            <div
+              :class="[ checkinErrors.length !== 0 ? 'border-pink' : 'border-gray-300']"
+              class="w-full rounded-xl border mt-2 md:mt-4 relative"
+            >
               <input
                 v-model="checkindate"
                 class="h-10 rounded-full text-sm px-3 focus:outline-none w-full"
                 type="date"
               />
-              <span class="text-xxs absolute top-0 bg-white left-0 -mt-2 ml-4 px-1">Check In</span>
+              <span class="text-xxs absolute top-0 bg-white left-0 -mt-2 ml-4 px-1">
+                Check In
+                <span v-if="checkinErrors.length !== 0" class="text-pink">
+                  ({{ checkinErrors.join(', ') }})
+                </span>
+              </span>
             </div>
-            <div class="w-full rounded-xl border-gray-300 border mt-3 relative">
+            <div
+              :class="[ checkoutErrors.length !== 0 ? 'border-pink' : 'border-gray-300']"
+              class="w-full rounded-xl border mt-2 md:mt-4 relative"
+            >
               <input
                 v-model="checkoutdate"
                 class="h-10 rounded-full text-sm px-3 focus:outline-none w-full"
                 type="date"
               />
-              <span class="text-xxs absolute top-0 bg-white left-0 -mt-2 ml-4 px-1">Check Out</span>
+              <span class="text-xxs absolute top-0 bg-white left-0 -mt-2 ml-4 px-1">
+                Check Out
+                <span v-if="checkoutErrors.length !== 0" class="text-pink">
+                  ({{ checkoutErrors.join(', ') }})
+                </span>
+              </span>
             </div>
             <button
               :disabled="!user || addTripDisabled"
               @click="addTrip"
-              :class="[ !user ? 'opacity-25 cursor-default' : 'cursor-pointer' ]"
+              :class="[ !user || addTripDisabled ? 'opacity-25 cursor-default' : 'cursor-pointer' ]"
               class="focus:outline-none w-full bg-pink text-white font-bold text-sm
               rounded-lg py-3 mt-2"
             >
@@ -180,9 +202,10 @@ export default {
         guests: this.guests,
         stayId: this.stayId,
       });
-      this.guests = '';
+      this.guests = 1;
       this.checkindate = '';
       this.checkoutdate = '';
+      this.toggleModal();
     },
   },
 };

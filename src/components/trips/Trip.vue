@@ -132,7 +132,7 @@ export default {
     },
     day(dateStr) {
       const date = new Date(dateStr);
-      return date.getDate();
+      return date.getDate() + 1;
     },
     toggleModal() {
       this.$refs.modal.classList.toggle('opacity-0');
