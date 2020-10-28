@@ -8,6 +8,7 @@
             v-for="(trip, index) in trips"
             :key="'trip-' + index"
             :data="trip"
+            :trip="index"
           >
           </trip>
         </div>
