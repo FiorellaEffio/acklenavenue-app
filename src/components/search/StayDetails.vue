@@ -48,7 +48,7 @@
         <div class="p-4 w-full flex flex-wrap">
           <div class="w-full sm:w-1/2">
             <div
-              class="hover:opacity-75 relative mb-2 cursor-pointer"
+              class="relative mb-2"
             >
               <img class="rounded-xl w-full" alt="" :src="data.img">
               <img class="absolute right-0 top-0 h-6 mt-2 mr-2" alt="" src="img/icons/heart.png">
@@ -99,7 +99,7 @@
             </button>
             <p v-if="!user" class="text-xs text-pink mt-1">
               <span class="text-white text-xxs bg-pink rounded-full px-2 py-1">!</span>
-              You must be logged to add a trip
+              You must be logged in to add a trip
             </p>
           </div>
         </div>

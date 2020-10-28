@@ -3,7 +3,7 @@
     <div class="lg:max-w-screen-xl lg:mx-auto flex flex-wrap">
       <p class="sm:mx-1 mb-4 md:mx-2 font-bold text-2xl w-full">Trips - Reservation Details</p>
       <template v-if="trips">
-        <div class="lg:max-w-screen-md lg:mx-auto">
+        <div class="lg:max-w-screen-md md:mx-auto">
           <trip
             v-for="(trip, index) in trips"
             :key="'trip-' + index"
@@ -34,9 +34,7 @@ export default {
   },
   created() {
     if (this.user) {
-      this.$store.dispatch('setFirebaseTrips', this.user.uid);
-    } else {
-      console.log('no hay usuarios');
+      this.$store.dispatch('setFirebaseTrips', this.user.id);
     }
   },
 };

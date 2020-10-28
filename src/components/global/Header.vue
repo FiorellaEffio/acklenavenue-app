@@ -86,6 +86,7 @@
         </div>
         <div class="w-full flex justify-center relative md:max-w-3xl mx-auto">
           <input
+            @keyup.enter="redirectSearch"
             class="h-12 rounded-full px-6 focus:outline-none w-full"
             type="text"
             placeholder="Where are you going?"
@@ -216,8 +217,13 @@ export default {
     signOut() {
       this.dropdownLogin = false;
       this.$store.dispatch('signOutFirebase');
-      this.$router.push('/');
+      if (this.$route.name === 'StayUserList') {
+        this.$router.push('/');
+      }
     },
+    redirectSearch() {
+      this.$router.push('/search');
+    }
   },
 };
 </script>

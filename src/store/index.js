@@ -36,10 +36,10 @@ export default new Vuex.Store({
   },
   actions: {
     addTripDatabase({ state }, data) {
-      firebase.database.ref(`trips/${state.user.uid}`).push(data);
+      firebase.database.ref(`trips/${state.user.id}`).push(data);
     },
-    setFirebaseTrips(context, uid) {
-      const pathRef = `trips/${uid}`;
+    setFirebaseTrips(context, id) {
+      const pathRef = `trips/${id}`;
       firebase.database.ref(pathRef).on('value', (snap) => {
         context.commit('setTrips', snap.toJSON());
       });
@@ -81,12 +81,12 @@ export default new Vuex.Store({
     signUpFirebase(context, data) {
       firebase.auth.createUserWithEmailAndPassword(data.email, data.password)
         .then((res) => {
-          console.log(res.user);
           const userData = {
             firstName: data.firstName,
             lastName: data.lastName,
             birthdate: data.birthdate,
             email: res.user.email,
+            id: res.user.uid,
           };
           firebase.database.ref(`users/${res.user.uid}`).set(userData);
         })
